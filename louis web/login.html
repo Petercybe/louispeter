@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background-image:url(data:image/jpeg;base64,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);
+            background-repeat:no-repeat;
+            background-size: cover;
+            background-position:absolute;
+
+        }
+        
+        .auth-container {
+            width: 100%;
+            height: 70%;
+            max-width: 400px;
+            padding: 40px;
+            background-color: rgba(224, 211, 211, 0.589);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(34, 72, 196, 0.808);
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease-in-out;
+            perspective: 800px
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+            box-sizing: border-box;
+            border-radius: 0 0 20px 20px;
+            background-color: aqua;
+            position: absolute;
+            left: 20%;
+            top: -3%;
+            width: 299px;
+            height: 40px;
+        }
+         .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 0 5px cyan, 0 0 25px cyan;
+            margin: 20px auto;
+            background-color: #ddd;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+        
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .success-message {
+            color: #28a745;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .toggle-auth {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .toggle-auth a {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .toggle-auth a:hover {
+            text-decoration: underline;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Login Form -->
+        <div id="loginFormContainer">
+            <h2>Login</h2>
+            <div class="profile-image">
+                <img src="louiss.jpg" alt="Profile Picture">
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" id="loginUsername" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                </div>
+                <div id="loginErrorMessage" class="error-message"></div>
+                <div id="loginSuccessMessage" class="success-message"></div>
+                <button type="submit" class="btn">Login</button>
+                <div class="toggle-auth">
+                    Don't have an account? <a id="showSignup">Sign up</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupFormContainer" class="hidden">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupUsername">Username</label>
+                    <input type="text" id="signupUsername" name="username" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" placeholder="Choose a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <div id="signupErrorMessage" class="error-message"></div>
+                <div id="signupSuccessMessage" class="success-message"></div>
+                <button type="submit" class="btn">Sign Up</button>
+                <div class="toggle-auth">
+                    Already have an account? <a id="showLogin">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const loginFormContainer = document.getElementById('loginFormContainer');
+        const signupFormContainer = document.getElementById('signupFormContainer');
+        const showSignup = document.getElementById('showSignup');
+        const showLogin = document.getElementById('showLogin');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        
+        // Toggle between login and signup forms
+        showSignup.addEventListener('click', () => {
+            loginFormContainer.classList.add('hidden');
+            signupFormContainer.classList.remove('hidden');
+            clearMessages();
+        });
+        
+        showLogin.addEventListener('click', () => {
+            signupFormContainer.classList.add('hidden');
+            loginFormContainer.classList.remove('hidden');
+            clearMessages();
+        });
+        
+        // Clear all messages
+        function clearMessages() {
+            document.getElementById('loginErrorMessage').style.display = 'none';
+            document.getElementById('loginSuccessMessage').style.display = 'none';
+            document.getElementById('signupErrorMessage').style.display = 'none';
+            document.getElementById('signupSuccessMessage').style.display = 'none';
+        }
+        
+        // Signup form submission
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get input values
+            const username = document.getElementById('signupUsername').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('signupErrorMessage');
+            const successMessage = document.getElementById('signupSuccessMessage');
+            
+            // Reset messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // Validation
+            if (!username || !email || !password || !confirmPassword) {
+                showError(errorMessage, 'Please fill in all fields');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showError(errorMessage, 'Passwords do not match');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showError(errorMessage, 'Password must be at least 6 characters');
+                return;
+            }
+            
+            // Check if user already exists
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const userExists = users.some(user => user.username === username || user.email === email);
+            
+            if (userExists) {
+                showError(errorMessage, 'Username or email already exists');
+                return;
+            }
+            
+            // Create new user
+            const newUser = {
+                username,
+                email,
+                password // In a real app, you would hash the password before storing
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Show success message and switch to login form
+            successMessage.textContent = 'Signup successful! You can now login.';
+            successMessage.style.display = 'block';
+            
+            // Clear form
+            signupForm.reset();
+            
+            // Switch to login form after 2 seconds
+            setTimeout(() => {
+                signupFormContainer.classList.add('hidden');
+                loginFormContainer.classList.remove('hidden');
+                successMessage.style.display = 'none';
+            }, 2000);
+        });
+        
+        // Login form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get input values
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const errorMessage = document.getElementById('loginErrorMessage');
+            const successMessage = document.getElementById('loginSuccessMessage');
+            
+            // Reset messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // Validation
+            if (!username || !password) {
+                showError(errorMessage, 'Please fill in all fields');
+                return;
+            }
+            
+            // Check credentials
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.username === username && user.password === password);
+            
+            if (user) {
+                // Successful login
+                successMessage.textContent = 'Login successful! Redirecting...';
+                successMessage.style.display = 'block';
+                
+                // Store current user in localStorage (for session management)
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                // In a real app, you would redirect to the dashboard
+                // window.location.href = '/dashboard';
+                
+                // For demo purposes, Redirect to the webpage
+                window.location.href = 'website.html'; // Redirect to the webpage
+            } else {
+                showError(errorMessage, 'Invalid username or password');
+            }
+        });
+        
+        // Helper function to show error messages
+        function showError(element, message) {
+            element.textContent = message;
+            element.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
