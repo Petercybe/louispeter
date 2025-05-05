@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background-image:url(data:image/jpeg;base64,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);
+            background-repeat:no-repeat;
+            background-size: cover;
+            background-position:absolute;
+
+        }
+        
+        .auth-container {
+            width: 100%;
+            height: 70%;
+            max-width: 400px;
+            padding: 40px;
+            background-color: rgba(224, 211, 211, 0.589);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(34, 72, 196, 0.808);
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease-in-out;
+            perspective: 800px
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+            box-sizing: border-box;
+            border-radius: 0 0 20px 20px;
+            background-color: aqua;
+            position: absolute;
+            left: 20%;
+            top: -3%;
+            width: 299px;
+            height: 40px;
+        }
+         .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 0 5px cyan, 0 0 25px cyan;
+            margin: 20px auto;
+            background-color: #ddd;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+        
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .success-message {
+            color: #28a745;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .toggle-auth {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .toggle-auth a {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .toggle-auth a:hover {
+            text-decoration: underline;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Login Form -->
+        <div id="loginFormContainer">
+            <h2>Login</h2>
+            <div class="profile-image">
+                <img src="louiss.jpg" alt="Profile Picture">
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" id="loginUsername" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                </div>
+                <div id="loginErrorMessage" class="error-message"></div>
+                <div id="loginSuccessMessage" class="success-message"></div>
+                <button type="submit" class="btn">Login</button>
+                <div class="toggle-auth">
+                    Don't have an account? <a id="showSignup">Sign up</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupFormContainer" class="hidden">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupUsername">Username</label>
+                    <input type="text" id="signupUsername" name="username" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" placeholder="Choose a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <div id="signupErrorMessage" class="error-message"></div>
+                <div id="signupSuccessMessage" class="success-message"></div>
+                <button type="submit" class="btn">Sign Up</button>
+                <div class="toggle-auth">
+                    Already have an account? <a id="showLogin">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const loginFormContainer = document.getElementById('loginFormContainer');
+        const signupFormContainer = document.getElementById('signupFormContainer');
+        const showSignup = document.getElementById('showSignup');
+        const showLogin = document.getElementById('showLogin');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        
+        // Toggle between login and signup forms
+        showSignup.addEventListener('click', () => {
+            loginFormContainer.classList.add('hidden');
+            signupFormContainer.classList.remove('hidden');
+            clearMessages();
+        });
+        
+        showLogin.addEventListener('click', () => {
+            signupFormContainer.classList.add('hidden');
+            loginFormContainer.classList.remove('hidden');
+            clearMessages();
+        });
+        
+        // Clear all messages
+        function clearMessages() {
+            document.getElementById('loginErrorMessage').style.display = 'none';
+            document.getElementById('loginSuccessMessage').style.display = 'none';
+            document.getElementById('signupErrorMessage').style.display = 'none';
+            document.getElementById('signupSuccessMessage').style.display = 'none';
+        }
+        
+        // Signup form submission
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get input values
+            const username = document.getElementById('signupUsername').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('signupErrorMessage');
+            const successMessage = document.getElementById('signupSuccessMessage');
+            
+            // Reset messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // Validation
+            if (!username || !email || !password || !confirmPassword) {
+                showError(errorMessage, 'Please fill in all fields');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showError(errorMessage, 'Passwords do not match');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showError(errorMessage, 'Password must be at least 6 characters');
+                return;
+            }
+            
+            // Check if user already exists
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const userExists = users.some(user => user.username === username || user.email === email);
+            
+            if (userExists) {
+                showError(errorMessage, 'Username or email already exists');
+                return;
+            }
+            
+            // Create new user
+            const newUser = {
+                username,
+                email,
+                password // In a real app, you would hash the password before storing
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Show success message and switch to login form
+            successMessage.textContent = 'Signup successful! You can now login.';
+            successMessage.style.display = 'block';
+            
+            // Clear form
+            signupForm.reset();
+            
+            // Switch to login form after 2 seconds
+            setTimeout(() => {
+                signupFormContainer.classList.add('hidden');
+                loginFormContainer.classList.remove('hidden');
+                successMessage.style.display = 'none';
+            }, 2000);
+        });
+        
+        // Login form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get input values
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const errorMessage = document.getElementById('loginErrorMessage');
+            const successMessage = document.getElementById('loginSuccessMessage');
+            
+            // Reset messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // Validation
+            if (!username || !password) {
+                showError(errorMessage, 'Please fill in all fields');
+                return;
+            }
+            
+            // Check credentials
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.username === username && user.password === password);
+            
+            if (user) {
+                // Successful login
+                successMessage.textContent = 'Login successful! Redirecting...';
+                successMessage.style.display = 'block';
+                
+                // Store current user in localStorage (for session management)
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                // In a real app, you would redirect to the dashboard
+                // window.location.href = '/dashboard';
+                
+                // For demo purposes, Redirect to the webpage
+                window.location.href = 'website.html'; // Redirect to the webpage
+            } else {
+                showError(errorMessage, 'Invalid username or password');
+            }
+        });
+        
+        // Helper function to show error messages
+        function showError(element, message) {
+            element.textContent = message;
+            element.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
