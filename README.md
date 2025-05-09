@@ -1,2 +1,0 @@
-# louispeter
-an outstanding developer 
