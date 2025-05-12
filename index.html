@@ -235,61 +235,148 @@
     </div>
 
     <script>
-       const signupForm = document.getElementById("signupForm");
-const loginForm = document.getElementById("loginForm");
-
-// Sign Up
-  const signupForm = document.getElementById('signup-form');
-
-  signupForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const username = document.getElementById('signup-username').value;
-    const email = document.getElementById('signup-email').value;
-    const password = document.getElementById('signup-password').value;
-
-    const response = await fetch('http://localhost:5000/api/auth/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username, email, password })
-    });
-
-    const data = await response.json();
-    if (response.ok) {
-      alert('Signup successful!');
-      window.location.href = 'login.html';
-    } else {
-      alert(data.message || 'Signup failed.');
-    }
-  });
-
-// Login
-  const loginForm = document.getElementById('login-form');
-
-  loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-
-    const response = await fetch('http://localhost:5000/api/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    });
-
-    const data = await response.json();
-    if (response.ok) {
-      alert(Welcome, ${data.username}!);
-      // You can redirect to a dashboard page if needed
-    } else {
-      alert(data.message || 'Login failed.');
-    }
-  });
+        // DOM Elements
+        const loginFormContainer = document.getElementById('loginFormContainer');
+        const signupFormContainer = document.getElementById('signupFormContainer');
+        const showSignup = document.getElementById('showSignup');
+        const showLogin = document.getElementById('showLogin');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        
+        // Toggle between login and signup forms
+        showSignup.addEventListener('click', () => {
+            loginFormContainer.classList.add('hidden');
+            signupFormContainer.classList.remove('hidden');
+            clearMessages();
+        });
+        
+        showLogin.addEventListener('click', () => {
+            signupFormContainer.classList.add('hidden');
+            loginFormContainer.classList.remove('hidden');
+            clearMessages();
+        });
+        
+        // Clear all messages
+        function clearMessages() {
+            document.getElementById('loginErrorMessage').style.display = 'none';
+            document.getElementById('loginSuccessMessage').style.display = 'none';
+            document.getElementById('signupErrorMessage').style.display = 'none';
+            document.getElementById('signupSuccessMessage').style.display = 'none';
+        }
+        
+        // Signup form submission
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get input values
+            const username = document.getElementById('signupUsername').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('signupErrorMessage');
+            const successMessage = document.getElementById('signupSuccessMessage');
+            
+            // Reset messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // Validation
+            if (!username || !email || !password || !confirmPassword) {
+                showError(errorMessage, 'Please fill in all fields');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showError(errorMessage, 'Passwords do not match');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showError(errorMessage, 'Password must be at least 6 characters');
+                return;
+            }
+            
+            // Check if user already exists
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const userExists = users.some(user => user.username === username || user.email === email);
+            
+            if (userExists) {
+                showError(errorMessage, 'Username or email already exists');
+                return;
+            }
+            
+            // Create new user
+            const newUser = {
+                username,
+                email,
+                password // In a real app, you would hash the password before storing
+            };
+            
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Show success message and switch to login form
+            successMessage.textContent = 'Signup successful! You can now login.';
+            successMessage.style.display = 'block';
+            
+            // Clear form
+            signupForm.reset();
+            
+            // Switch to login form after 2 seconds
+            setTimeout(() => {
+                signupFormContainer.classList.add('hidden');
+                loginFormContainer.classList.remove('hidden');
+                successMessage.style.display = 'none';
+            }, 2000);
+        });
+        
+        // Login form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get input values
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const errorMessage = document.getElementById('loginErrorMessage');
+            const successMessage = document.getElementById('loginSuccessMessage');
+            
+            // Reset messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // Validation
+            if (!username || !password) {
+                showError(errorMessage, 'Please fill in all fields');
+                return;
+            }
+            
+            // Check credentials
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.username === username && user.password === password);
+            
+            if (user) {
+                // Successful login
+                successMessage.textContent = 'Login successful! Redirecting...';
+                successMessage.style.display = 'block';
+                
+                // Store current user in localStorage (for session management)
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                // In a real app, you would redirect to the dashboard
+                // window.location.href = '/dashboard';
+                
+                // For demo purposes, Redirect to the webpage
+                window.location.href = 'website.html'; // Redirect to the webpage
+            } else {
+                showError(errorMessage, 'Invalid username or password');
+            }
+        });
+        
+        // Helper function to show error messages
+        function showError(element, message) {
+            element.textContent = message;
+            element.style.display = 'block';
+        }
     </script>
 </body>
 </html>
