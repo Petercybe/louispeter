@@ -235,7 +235,7 @@
     </div>
 
     <script>
-       // DOM Elements
+      // DOM Elements
 const loginFormContainer = document.getElementById('loginFormContainer');
 const signupFormContainer = document.getElementById('signupFormContainer');
 const showSignup = document.getElementById('showSignup');
@@ -346,7 +346,47 @@ loginForm.addEventListener('submit', async function(e) {
     
     // Validation
     if (!username || !password) {
-        showError(errorMessage, 'Please fill in all fields
+        showError(errorMessage, 'Please fill in all fields');
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(data.msg || 'Login failed');
+        }
+        
+        // Store the token in localStorage
+        localStorage.setItem('token', data.token);
+        
+        // Successful login
+        successMessage.textContent = 'Login successful! Redirecting...';
+        successMessage.style.display = 'block';
+        
+        // Redirect to the dashboard
+        setTimeout(() => {
+            window.location.href = 'website.html';
+        }, 1500);
+        
+    } catch (err) {
+        showError(errorMessage, err.message);
+    }
+});
+
+// Helper function to show error messages
+function showError(element, message) {
+    element.textContent = message;
+    element.style.display = 'block';
+}
     </script>
 </body>
 </html>
