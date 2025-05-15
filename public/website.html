@@ -464,6 +464,29 @@
             <div class="flex flex-col md:flex-row gap-12">
                 <div class="md:w-1/2">
                     <form class="space-y-6">
+                        <script>
+document.querySelector("form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    try {
+        const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, subject, message })
+        });
+
+        const data = await res.json();
+        alert(data.message || 'Message sent!');
+    } catch (err) {
+        alert('There was an error sending the message.');
+    }
+});
+</script>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
@@ -548,37 +571,12 @@
             </div>
         </div>
     </section>
-    <script>
-document.querySelector("form").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const subject = document.getElementById("subject").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    try {
-        const res = await fetch('/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, subject, message })
-        });
-
-        const data = await res.json();
-        alert(data.message || 'Message sent!');
-    } catch (err) {
-        alert('There was an error sending the message.');
-    }
-});
-</script>
-
-
     <!-- Footer -->
     <footer class="bg-black/50 py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center mb-6 md:mb-0">
-                    <img src="louis.png" alt="Logo" class="h-10 w-10 rounded-full mr-3">
+                    <img src="https://files.cdn-files-a.com/uploads/9554711/2000_68175d1912669.png" alt="Logo" class="h-10 w-10 rounded-full mr-3">
                     <span class="text-xl font-bold">Peter <span class="gradient-text">Louis</span></span>
                 </div>
                 
