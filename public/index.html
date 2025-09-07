@@ -6,76 +6,9 @@
     <title>louis web | Designer & Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            background: linear-gradient(135deg, #000000 0%, #2d2d2d 50%, #666464 100%);
-            background-attachment: fixed;
-            color: #ffffff;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .card-glass {
-            background: rgba(102, 96, 96, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .slider-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px;
-        }
-        
-        .slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        
-        .slider-nav {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-        
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .slider-dot.active {
-            background: white;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-fadeIn {
-            animation: fadeIn 1s ease-out forwards;
-        }
-        
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        
-        .hover-scale:hover {
-            transform: scale(1.03);
-        }
-    </style>
+    <!-- New Futuristic Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" herf="styles.css">
 </head>
 <body class="min-h-screen font-sans">
     <!-- Navigation -->
@@ -168,12 +101,12 @@
                     <!-- Slide 3 -->
                     <div class="min-w-full h-full relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30"></div>
-                        <img src="https://files.cdn-files-a.com/uploads/9554711/100_67b92ef55ccb9.jpg" 
+                        <img src="images/001.jpg" 
                              alt="Brand Identity" class="w-full h-full object-cover">
                         <div class="absolute inset-0 flex items-center px-8 md:px-16">
                             <div class="max-w-2xl">
                                 <h2 class="text-3xl md:text-4xl font-bold mb-4">louis peter</h2>
-                                <p class="text-lg md:text-xl mb-8 opacity-90">master of desing</p>
+                                <p class="text-lg md:text-xl mb-8 opacity-90">master of Design</p>
                             </div>
                         </div>
                     </div>
@@ -280,12 +213,12 @@
                 <div class="portfolio-item development hover-scale" data-category="development">
                     <div class="card-glass rounded-xl overflow-hidden h-full flex flex-col">
                         <div class="h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+                            <img src="images/222.jpg" 
                                  alt="Web Project" class="w-full h-full object-cover transition duration-500 hover:scale-110">
                         </div>
                         <div class="p-6 flex-grow">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-semibold">E-commerce Website</h3>
+                                <h3 class="text-xl font-semibold">poster design</h3>
                                 <span class="px-2 py-1 bg-purple-500/20 text-purple-400 text-xs font-medium rounded-full">Development</span>
                             </div>
                             <p class="text-gray-300 mb-4">Custom e-commerce platform with React and Node.js</p>
@@ -388,37 +321,40 @@
                         <div class="card-glass rounded-xl overflow-hidden">
                             <img src="https://files.cdn-files-a.com/uploads/9554711/2000_67be1141113af.jpg" 
                                  alt="Additional Project" class="w-full h-70 object-cover">
-                            <div class="p-6">
-                                <h4 class="text-xl font-semibold mb-2">wallpaper</h4>
-                               
-                            </div>
+                           
                         </div>
                         
                         <div class="card-glass rounded-xl overflow-hidden">
                             <img src="https://files.cdn-files-a.com/uploads/9554711/2000_67be11515d409.jpg" 
                                  alt="Additional Project" class="w-full h-70 object-cover">
-                            <div class="p-6">
-                                <h4 class="text-xl font-semibold mb-2">wallpaper</h4>
-                                
-                            </div>
+                            
                         </div>
 
                         <div class="card-glass rounded-xl overflow-hidden">
                             <img src="https://files.cdn-files-a.com/uploads/9554711/2000_67be115f2c4ed.jpg"
                                  alt="Additional Project" class="w-full h-70 object-cover">
-                            <div class="p-6">
-                                <h4 class="text-xl font-semibold mb-2">logo</h4>
-                                
-                            </div>
+                           
+                        </div>
+                         <div class="card-glass rounded-xl overflow-hidden">
+                            <img src="images/u.jpg"
+                                 alt="Additional Project" class="w-full h-70 object-cover">
+                           
+                        </div>
+                         <div class="card-glass rounded-xl overflow-hidden">
+                            <img src="images/drawing-1.jpg"
+                                 alt="Additional Project" class="w-full h-70 object-cover">
+                           
+                        </div>
+                         <div class="card-glass rounded-xl overflow-hidden">
+                            <img src="images/don 001.jpg"
+                                 alt="Additional Project" class="w-full h-70 object-cover">
+                           
                         </div>
 
                         <div class="card-glass rounded-xl overflow-hidden">
                             <img src="https://files.cdn-files-a.com/uploads/9554711/2000_67be059f0267c.jpg"
                                  alt="Additional Project" class="w-full h-70 object-cover">
-                            <div class="p-6">
-                                <h4 class="text-xl font-semibold mb-2">logo</h4>
-                                
-                            </div>
+                           
                         </div>
 
                         <div class="card-glass rounded-xl overflow-hidden">
@@ -559,22 +495,18 @@
                     <span class="text-xl font-bold">Peter <span class="gradient-text">Louis</span></span>
                 </div>
                 
-                <div class="flex space-x-6 mb-6 md:mb-0">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-dribbble text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-behance text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-linkedin-in text-xl"></i>
-                    </a>
-                </div>
-                
-                <div class="text-gray-400 text-sm">
+                 <!-- Placeholder for social media icons -->
+                <div class="social-icons">
+  <a href="https://www.facebook.com/share/1NxW4VD5pQ/?mibextid=wwXIfr" target="_blank" title="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://www.tiktok.com/@peterlouisb" target="_blank" title="TikTok">
+    <i class="fab fa-tiktok"></i>
+  </a>
+  <a href="https://wa.me/23299803937" target="_blank" title="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
                     © 2023 Louis peter. All rights reserved.
                 </div>
             </div>
@@ -585,177 +517,6 @@
     <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
         <i class="fas fa-arrow-up"></i>
     </button>
-
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-        
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Image slider functionality
-        const slider = document.querySelector('.slider');
-        const slides = document.querySelectorAll('.slider > div');
-        const dots = document.querySelectorAll('.slider-dot');
-        let currentSlide = 0;
-        const slideCount = slides.length;
-        
-        // Set up automatic sliding
-        let slideInterval = setInterval(nextSlide, 5000);
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slideCount;
-            updateSlider();
-        }
-        
-        function updateSlider() {
-            slider.style.transform = translateX(-${currentSlide * 100}%);
-            
-            // Update dots
-            dots.forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-            
-            // Reset timer
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-        
-        // Dot navigation
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                updateSlider();
-            });
-        });
-        
-        // Pause on hover
-        const sliderContainer = document.querySelector('.slider-container');
-        sliderContainer.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
-        
-        sliderContainer.addEventListener('mouseleave', () => {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-        });
-        
-        // Portfolio filtering
-        const filterButtons = document.querySelectorAll('.portfolio-filter');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active button
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('bg-blue-500', 'text-white');
-                    btn.classList.add('bg-gray-800', 'text-gray-300');
-                });
-                button.classList.remove('bg-gray-800', 'text-gray-300');
-                button.classList.add('bg-blue-500', 'text-white');
-                
-                const filter = button.dataset.filter;
-                
-                // Filter items
-                portfolioItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // All Work Modal
-        const viewAllButton = document.getElementById('view-all-work');
-        const allWorkModal = document.getElementById('all-work-modal');
-        const closeModalButton = document.getElementById('close-modal');
-        
-        viewAllButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            allWorkModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        closeModalButton.addEventListener('click', () => {
-            allWorkModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Close modal when clicking outside content
-        allWorkModal.addEventListener('click', (e) => {
-            if (e.target === allWorkModal) {
-                allWorkModal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }
-        });
-        
-        // Animate elements when they come into view
-        const fadeElements = document.querySelectorAll('.animate-fadeIn');
-        
-        const fadeInObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeIn');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        fadeElements.forEach(element => {
-            fadeInObserver.observe(element);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
-
